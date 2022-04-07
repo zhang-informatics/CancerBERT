@@ -68,9 +68,9 @@ Maybe some tricks need to be added to the above model.
 
 ### reference:
 
-[1] https://arxiv.org/abs/1810.04805
+https://academic.oup.com/jamia/advance-article/doi/10.1093/jamia/ocac040/6554005
 
-[2] https://github.com/google-research/bert
+
 
 
 
