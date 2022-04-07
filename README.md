@@ -53,12 +53,7 @@ We used uncased model with max_seq_length=128 due to limited computing resource
 * num_train_epochs=5.0
 * crf=True
 ```
-accuracy:  98.15%; precision:  90.61%; recall:  88.85%; FB1:  89.72
-              LOC: precision:  91.93%; recall:  91.79%; FB1:  91.86  1387
-             MISC: precision:  83.83%; recall:  78.43%; FB1:  81.04  668
-              ORG: precision:  87.83%; recall:  85.18%; FB1:  86.48  1191
-              PER: precision:  95.19%; recall:  94.83%; FB1:  95.01  1311
-```
+
 ### Result description:
 
 Evaluation results can be found in Table 3 of the paper:
