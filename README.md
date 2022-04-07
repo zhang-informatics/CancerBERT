@@ -1,19 +1,14 @@
-## For better performance, you can try NLPGNN, see [NLPGNN](https://github.com/kyzhouhzau/NLPGNN) for more details.
+# CANCERBERT-NER
 
-# BERT-NER Version 2
-
-
-Use Google's BERT for named entity recognition （CoNLL-2003 as the dataset）. 
-
-The original version （see old_version for more detail） contains some hard codes and lacks corresponding annotations,which is inconvenient to understand. So in this updated version,there are some new ideas and tricks （On data Preprocessing and layer design） that can help you quickly implement the fine-tuning model (you just need to try to modify crf_layer or softmax_layer).
+So in this updated version,there are some new ideas and tricks （On data Preprocessing and layer design） that can help you quickly implement the fine-tuning model (you just need to try to modify crf_layer or softmax_layer).
 
 ### Folder Description:
 ```
 BERT-NER
 |____ bert                          # need git from [here](https://github.com/google-research/bert)
-|____ cased_L-12_H-768_A-12	    # need download from [here](https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip)
-|____ data		            # train data
-|____ middle_data	            # middle data (label id map)
+|____ CancerBERT_model	    # wait for university approval, can use other models instead (e.g. BLUEBERT)
+|____ data		            # train data (Annotated in BIO format, data cannot be shared due to privacy issue)
+|____ middle_data	        # middle data (label id map)
 |____ output			    # output (final model, predict results)
 |____ BERT_NER.py		    # mian code
 |____ conlleval.pl		    # eval code
@@ -49,33 +44,22 @@ python BERT_NER.py\
 perl conlleval.pl -d '\t' < ./output/result_dir/label_test.txt
 ```
 
-**Notice:** cased model was recommened, according to [this](https://arxiv.org/abs/1810.04805) paper. CoNLL-2003 dataset and perl Script comes from [here](https://www.clips.uantwerpen.be/conll2003/ner/)
-
+**Notice:** 
+We used uncased model with max_seq_length=128 due to limited computing resource
 
 ### RESULTS:(On test set)
 #### Parameter setting:
-* do_lower_case=False 
-* num_train_epochs=4.0
-* crf=False
-  
+* do_lower_case=True 
+* num_train_epochs=5.0
+* crf=True
 ```
-accuracy:  98.15%; precision:  90.61%; recall:  88.85%; FB1:  89.72
-              LOC: precision:  91.93%; recall:  91.79%; FB1:  91.86  1387
-             MISC: precision:  83.83%; recall:  78.43%; FB1:  81.04  668
-              ORG: precision:  87.83%; recall:  85.18%; FB1:  86.48  1191
-              PER: precision:  95.19%; recall:  94.83%; FB1:  95.01  1311
-```
+
 ### Result description:
-Here i just use the default paramaters, but as Google's paper says a 0.2% error is reasonable(reported 92.4%).
-Maybe some tricks need to be added to the above model. 
+
+Evaluation results can be found in Table 3 of the paper:
+https://academic.oup.com/jamia/advance-article/doi/10.1093/jamia/ocac040/6554005
 
 
-
-### reference:
-
-[1] https://arxiv.org/abs/1810.04805
-
-[2] https://github.com/google-research/bert
 
 
 
