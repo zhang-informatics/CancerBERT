@@ -1,11 +1,6 @@
-## For better performance, you can try NLPGNN, see [NLPGNN](https://github.com/kyzhouhzau/NLPGNN) for more details.
+# CANCERBERT-NER
 
-# BERT-NER Version 2
-
-
-Use Google's BERT for named entity recognition （CoNLL-2003 as the dataset）. 
-
-The original version （see old_version for more detail） contains some hard codes and lacks corresponding annotations,which is inconvenient to understand. So in this updated version,there are some new ideas and tricks （On data Preprocessing and layer design） that can help you quickly implement the fine-tuning model (you just need to try to modify crf_layer or softmax_layer).
+So in this updated version,there are some new ideas and tricks （On data Preprocessing and layer design） that can help you quickly implement the fine-tuning model (you just need to try to modify crf_layer or softmax_layer).
 
 ### Folder Description:
 ```
